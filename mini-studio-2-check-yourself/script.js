@@ -7,22 +7,22 @@ async function makePieCharts() {
     const time = Object.values(data[day]);
 
     // Chart legend text color
-    if(index % 2 == 0){
+    if (index % 2 == 0) {
       // if even, make legend text color white
       makeChart(day, category, time, "#EBEBF5");
     } else {
       // make legend text color black
       makeChart(day, category, time, "#3C3C43");
     }
-    
+
   });
 }
 
 async function getData() {
-  
+
   // Fetch data from data.json
   const myTime = await fetch("./data/data.json");
-  
+
   // Parse response object body as JSON
   const data = await myTime.json();
 

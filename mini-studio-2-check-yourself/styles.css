@@ -17,7 +17,7 @@ header {
     margin-top: 20px;
 }
 
-header p{
+header p {
     margin-top: 5px;
     font-weight: 400;
 }
@@ -52,10 +52,4 @@ article {
 h2 {
     padding-top: 10px;
     text-align: center;
-}
-
-canvas {
-    width: 200px; /* Set the desired width */
-    height: 150px; /* Set the desired height */
-    margin-top: 10px;
 }
