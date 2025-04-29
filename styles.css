@@ -1,6 +1,7 @@
 /* CSS Resets */
 * {
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -62,7 +63,8 @@ main {
 
 main section {
     flex: 1;
-    border: 1px rgb(235, 235, 235) dashed;
+    border: 1px rgb(235, 235, 235) solid;
+    border-radius: 20px;
     margin: 0 .25em;
     padding: 1em;
 }
@@ -85,12 +87,13 @@ section a {
     line-height: 1.1em;
     display: inline-block;
     padding: .5em;
-    color: orange;
+    /* dark mode text color */
+    color: #EBEBF599;
 }
 
 section a:hover {
-    background-color: orange;
-    color: #333;
+    background-color: #EBEBF599;
+    color: #3C3C4399;
 }
 
 section.switch a {
