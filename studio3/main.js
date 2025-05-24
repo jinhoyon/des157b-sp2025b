@@ -28,6 +28,9 @@ loader.load("./model/Racket.glb", function( glb ){
     root = glb.scene;
     // root.scale.set(2.5,2.5,2.5);
     scene.add(root);
+
+    // Start animation only after model is loaded (was causing errors)
+    animate();
 }, function(xhr){
     console.log((xhr.loaded / xhr.total * 100) + "% loaded");
 }, function(error){
@@ -68,9 +71,8 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 function animate(){
     requestAnimationFrame(animate);
     renderer.render(scene,camera);
-    // root.rotation.x += 0.01;
-    root.rotation.y += 0.01;
+    // Only rotate if root exists
+    if (root) {
+        root.rotation.y += 0.01;
+    }
 }
-
-
-animate();
