@@ -3,18 +3,6 @@
 
 // import * as THREE from "three";
 // import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-$(window).load(function(){
-    $('.flexslider').flexslider(
-        {
-        animation: "slide",
-        slideShowSpeed: 2000,
-        direction: "vertical",
-        reverse: true,
-        pauseonHover: true,
-        }
-    );
-});
-
 
 const canvas = document.querySelector('.webgl');
 // 1. scene
@@ -29,8 +17,8 @@ loader.load("./model/Racket.glb", function( glb ){
     root = glb.scene;
     // root.scale.set(2.5,2.5,2.5);
     scene.add(root);
-    shouldAnimate = true;  // Enable animation after model loads
-    animate();
+    // Render the scene once
+    renderer.render(scene, camera);
 }, function(xhr){
     console.log((xhr.loaded / xhr.total * 100) + "% loaded");
 }, function(error){
@@ -67,12 +55,3 @@ renderer.shadowMap.enabled = true;
 // Deprecated:
 // renderer.gammaOutput = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
-
-function animate(){
-    requestAnimationFrame(animate);
-    renderer.render(scene,camera);
-    // Only rotate if root exists and animation is enabled
-    if (root && shouldAnimate) {
-        root.rotation.y += 0.01;
-    }
-}
