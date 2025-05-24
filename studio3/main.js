@@ -12,8 +12,19 @@ let root;
 let shouldAnimate = false;  // Add flag to control animation
 
 const loader = new THREE.GLTFLoader();
+
+// Log the current URL to help debug path issues
+console.log("Current URL:", window.location.href);
+
+// Use absolute path for GitHub Pages
+const modelPath = window.location.href.includes('github.io') 
+    ? 'https://jinhoyon.github.io/des157b-sp2025b/studio3/model/Racket.glb'  // Full GitHub Pages URL
+    : './model/Racket.glb';  // Local development path
+
+console.log("Attempting to load model from:", modelPath);
+
 loader.load(
-    "./model/Racket.glb", 
+    modelPath,
     function(glb) {
         console.log("Model loaded successfully:", glb);
         root = glb.scene;
@@ -25,10 +36,15 @@ loader.load(
     },
     function(error) {
         console.error("Error loading model:", error);
+        // Log more details about the error
+        if (error.target) {
+            console.error("Error URL:", error.target.responseURL);
+            console.error("Error Status:", error.target.status);
+            console.error("Error Response:", error.target.response);
+        }
     }
 );
 
-// Add ambient light to make sure the object is visible
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
@@ -49,7 +65,6 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-// Modify camera position to ensure we can see the object
 camera.position.set(0, 0, 2); // Move camera back a bit
 camera.lookAt(0, 0, 0);
 scene.add(camera);
