@@ -21,6 +21,7 @@ const canvas = document.querySelector('.webgl');
 const scene = new THREE.Scene();
 
 let root;
+let shouldAnimate = false;  // Add flag to control animation
 
 const loader = new THREE.GLTFLoader();
 loader.load("./model/Racket.glb", function( glb ){
@@ -28,8 +29,7 @@ loader.load("./model/Racket.glb", function( glb ){
     root = glb.scene;
     // root.scale.set(2.5,2.5,2.5);
     scene.add(root);
-
-    // Start animation only after model is loaded (was causing errors)
+    shouldAnimate = true;  // Enable animation after model loads
     animate();
 }, function(xhr){
     console.log((xhr.loaded / xhr.total * 100) + "% loaded");
@@ -71,8 +71,8 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 function animate(){
     requestAnimationFrame(animate);
     renderer.render(scene,camera);
-    // Only rotate if root exists
-    if (root) {
+    // Only rotate if root exists and animation is enabled
+    if (root && shouldAnimate) {
         root.rotation.y += 0.01;
     }
 }
