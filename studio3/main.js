@@ -16,10 +16,10 @@ const loader = new THREE.GLTFLoader();
 // Log the current URL to help debug path issues
 console.log("Current URL:", window.location.href);
 
-// Use absolute path for GitHub Pages
+// Use absolute path for GitHub Pages with .glb extension
 const modelPath = window.location.href.includes('github.io') 
-    ? 'https://jinhoyon.github.io/des157b-sp2025b/studio3/model/Racket.glb'  // Full GitHub Pages URL
-    : './model/Racket.glb';  // Local development path
+    ? 'https://jinhoyon.github.io/des157b-sp2025b/studio3/model/Racket.glb'  // Full GitHub Pages URL with .glb
+    : './model/Racket.glb';  // Local development path with .glb
 
 console.log("Attempting to load model from:", modelPath);
 
