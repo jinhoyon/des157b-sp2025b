@@ -16,34 +16,46 @@ const loader = new THREE.GLTFLoader();
 // Log the current URL to help debug path issues
 console.log("Current URL:", window.location.href);
 
-// Use absolute path for GitHub Pages with .glb extension
-const modelPath = window.location.href.includes('github.io') 
-    ? 'https://jinhoyon.github.io/des157b-sp2025b/studio3/model/Racket.glb'  // Full GitHub Pages URL with .glb
-    : './model/Racket.glb';  // Local development path with .glb
+// Use a simple relative path
+const modelPath = 'model/Racket.glb';
 
 console.log("Attempting to load model from:", modelPath);
 
-loader.load(
-    modelPath,
-    function(glb) {
-        console.log("Model loaded successfully:", glb);
-        root = glb.scene;
-        scene.add(root);
-        renderer.render(scene, camera);
-    },
-    function(xhr) {
-        console.log((xhr.loaded / xhr.total * 100) + "% loaded");
-    },
-    function(error) {
-        console.error("Error loading model:", error);
-        // Log more details about the error
-        if (error.target) {
-            console.error("Error URL:", error.target.responseURL);
-            console.error("Error Status:", error.target.status);
-            console.error("Error Response:", error.target.response);
+// Add a test to check if the file exists
+fetch(modelPath)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }
-);
+        return response;
+    })
+    .then(() => {
+        // Only try to load the model if the file exists
+        loader.load(
+            modelPath,
+            function(glb) {
+                console.log("Model loaded successfully:", glb);
+                root = glb.scene;
+                scene.add(root);
+                renderer.render(scene, camera);
+            },
+            function(xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + "% loaded");
+            },
+            function(error) {
+                console.error("Error loading model:", error);
+                if (error.target) {
+                    console.error("Error URL:", error.target.responseURL);
+                    console.error("Error Status:", error.target.status);
+                    console.error("Error Response:", error.target.response);
+                }
+            }
+        );
+    })
+    .catch(error => {
+        console.error("Error checking model file:", error);
+        console.error("Please make sure the model file exists at:", modelPath);
+    });
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
