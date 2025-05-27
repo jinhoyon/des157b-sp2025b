@@ -48,7 +48,7 @@ scene.add(backLight);
 
 // Load MTL (Material Definitions - textures, colors, etc.)
 var mtlLoader = new THREE.MTLLoader();
-mtlLoader.setPath('./model/');
+mtlLoader.setPath('./assets/');
 mtlLoader.load('JinhoWithClothes.mtl', function (materials) { // materials = materials parsed from MTL file
 
     materials.preload(); // prepares materials for use
@@ -56,7 +56,7 @@ mtlLoader.load('JinhoWithClothes.mtl', function (materials) { // materials = mat
     // Load OBJ (Geometry - vertices, edges, etc.)
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials); // appy materials to object
-    objLoader.setPath('./model/');
+    objLoader.setPath('./assets/');
     objLoader.load('JinhoWithClothes.obj', function (object) {
 
         scene.add(object);
