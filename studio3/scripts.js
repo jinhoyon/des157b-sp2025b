@@ -1,20 +1,30 @@
+
+// Canvas
+const canvas = document.querySelector('.webgl');
+
 // 1. Scene
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
+scene.background = new THREE.Color(0xffffff);
 
 // 2. Camera
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 200;
 
 // 3. Render
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// var renderer = new THREE.WebGLRenderer();
+var renderer = new THREE.WebGLRenderer({canvas});
+// renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio), 2);
+renderer.shadowMap.enabled = true;
+
+// document.body.appendChild(renderer.domElement);
 
 // Orbit Controls (For moving Model)
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // adds inertia so model does not stop immediately
 controls.dampingFactor = 0.25; // how strong damping is (from 0 to 1)
+controls.enableZoom = true;
 
 // 4. Lights
 
