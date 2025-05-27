@@ -4,20 +4,24 @@
 // import * as THREE from "three";
 // import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
+// import { OrbitControls } from './three/addons/controls/OrbitControls.js';
+// const controls = new THREE.OrbitControls(camera, renderer.domElement);
+// controls.update();
+
 const canvas = document.querySelector('.webgl');
 // 1. scene
 const scene = new THREE.Scene();
 
 let root;
-let shouldAnimate = false;  // Add flag to control animation
+// let shouldAnimate = false;  // Add flag to control animation
 
 const loader = new THREE.GLTFLoader();
 
-// Log the current URL to help debug path issues
+// Log the current URL for debugging
 console.log("Current URL:", window.location.href);
 
 // Use a simple relative path
-const modelPath = 'model/Racket.glb';
+const modelPath = 'model/JinhoV1.gltf';
 
 console.log("Attempting to load model from:", modelPath);
 
@@ -91,5 +95,4 @@ renderer.shadowMap.enabled = true;
 // renderer.gammaOutput = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 
-// Add a background color to make sure the scene is visible
 scene.background = new THREE.Color(0x808080); // Gray background
