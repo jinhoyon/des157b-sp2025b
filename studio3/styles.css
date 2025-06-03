@@ -1,9 +1,17 @@
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
 }
 
-li {
-    list-style: none;
+canvas {
+  margin-top: 100px;
+  width: 80%;
+
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  border-radius: 20px;
 }
