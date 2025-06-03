@@ -50,6 +50,7 @@ h2 {
   border-radius: 20px;
 }
 
-.flex-containter {
-  /* display: flex; */
+footer {
+    display: flex;
+    gap: 3px;
 }
