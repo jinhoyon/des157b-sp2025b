@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+#myVideo {
+  display: block;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1; 
+
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.showing {
+  opacity: 1;
+}
+
+#text1, #text2, #text3 {
+    /* Text Positioning */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* translates the element by 50% of its width and height so that it is centered */
+    z-index: 2; /* position infront of video */
+    
+    /* Text color */
+    color: black;
+
+    /* Background  */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 20px;
+
+    /* Transition */
+    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+
+}
