@@ -1,15 +1,15 @@
 // Scroll Animation
 
 document.addEventListener('DOMContentLoaded', function() {
-    var section1 = document.querySelector('#section1');
-    var buttons = section1.querySelectorAll('button');
-    var title = section1.querySelector('h1');
-    var yesButtonContent = document.querySelector('#yes-button');
-    var noButtonContent = document.querySelector('#no-button');
-    var yesButtonElements = yesButtonContent.querySelectorAll('p, h2');
-    var noButtonElements = noButtonContent.querySelectorAll('p, h2');
+    var section1 = document.querySelector('#section1'); // select section
+    var title = section1.querySelector('h1');   // select section title
+    var buttons = section1.querySelectorAll('button');  // selection setcion 1 buttons
+    var yesButtonContent = document.querySelector('#yes-button');   // section 1 "yes" button
+    var noButtonContent = document.querySelector('#no-button');     // section 1 "no" button
+    var yesButtonElements = yesButtonContent.querySelectorAll('p, h2'); // "yes" button text elements
+    var noButtonElements = noButtonContent.querySelectorAll('p, h2');   // "no" button text elements
     
-    alert("You are a first-year UC Davis student who likes to order clothes online. You have been recently bought a hoddie you liked, but found out that it is too small for your liking. Scroll through the webpage and interact with it to find out about online shopping.")
+    // alert("You are a first-year UC Davis student who likes to order clothes online. You have been recently bought a hoddie you liked, but found out that it is too small for your liking. Scroll through the webpage and interact with it to find out about online shopping.")
 
     // Add transitions to all elements
     var allElements = [title];

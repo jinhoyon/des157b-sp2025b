@@ -1,0 +1,941 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+  height: 100vh;
+}
+
+/* Canvas */
+canvas {
+  width: 375px;
+  height: 600px;
+  border-style: solid;
+  border-width: 4px;
+  margin: 0;
+}
+
+/* Section Styles */
+section {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+}
+
+/* Position sections off-screen initially */
+#section0 {
+  transform: translateX(0);
+}
+#section1 {
+  transform: translateX(100vw);
+}
+#section2 {
+  transform: translateX(200vw);
+}
+#section3 {
+  transform: translateX(300vw);
+}
+#section4 {
+  transform: translateX(400vw);
+}
+#section5 {
+  transform: translateX(500vw);
+}
+
+/* Active section positioning */
+.section-active-0 #section0 {
+  transform: translateX(0);
+}
+.section-active-0 #section1 {
+  transform: translateX(100vw);
+}
+.section-active-0 #section2 {
+  transform: translateX(200vw);
+}
+.section-active-0 #section3 {
+  transform: translateX(300vw);
+}
+.section-active-0 #section4 {
+  transform: translateX(400vw);
+}
+.section-active-0 #section5 {
+  transform: translateX(500vw);
+}
+
+.section-active-1 #section0 {
+  transform: translateX(-100vw);
+}
+.section-active-1 #section1 {
+  transform: translateX(0);
+}
+.section-active-1 #section2 {
+  transform: translateX(100vw);
+}
+.section-active-1 #section3 {
+  transform: translateX(200vw);
+}
+.section-active-1 #section4 {
+  transform: translateX(300vw);
+}
+.section-active-1 #section5 {
+  transform: translateX(400vw);
+}
+
+.section-active-2 #section0 {
+  transform: translateX(-200vw);
+}
+.section-active-2 #section1 {
+  transform: translateX(-100vw);
+}
+.section-active-2 #section2 {
+  transform: translateX(0);
+}
+.section-active-2 #section3 {
+  transform: translateX(100vw);
+}
+.section-active-2 #section4 {
+  transform: translateX(200vw);
+}
+.section-active-2 #section5 {
+  transform: translateX(300vw);
+}
+
+.section-active-3 #section0 {
+  transform: translateX(-300vw);
+}
+.section-active-3 #section1 {
+  transform: translateX(-200vw);
+}
+.section-active-3 #section2 {
+  transform: translateX(-100vw);
+}
+.section-active-3 #section3 {
+  transform: translateX(0);
+}
+.section-active-3 #section4 {
+  transform: translateX(100vw);
+}
+.section-active-3 #section5 {
+  transform: translateX(200vw);
+}
+
+.section-active-4 #section0 {
+  transform: translateX(-400vw);
+}
+.section-active-4 #section1 {
+  transform: translateX(-300vw);
+}
+.section-active-4 #section2 {
+  transform: translateX(-200vw);
+}
+.section-active-4 #section3 {
+  transform: translateX(-100vw);
+}
+.section-active-4 #section4 {
+  transform: translateX(0);
+}
+.section-active-4 #section5 {
+  transform: translateX(100vw);
+}
+
+.section-active-5 #section0 {
+  transform: translateX(-500vw);
+}
+.section-active-5 #section1 {
+  transform: translateX(-400vw);
+}
+.section-active-5 #section2 {
+  transform: translateX(-300vw);
+}
+.section-active-5 #section3 {
+  transform: translateX(-200vw);
+}
+.section-active-5 #section4 {
+  transform: translateX(-100vw);
+}
+.section-active-5 #section5 {
+  transform: translateX(0);
+}
+
+/* Continue button styling for all sections */
+.continue-btn {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 18px;
+  width: 140px;
+  height: 48px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: calc(5% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20;
+}
+
+.continue-btn::after {
+  content: "→";
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.continue-btn:hover {
+  background-color: #666;
+  width: 160px;
+}
+
+.continue-btn:hover::after {
+  transform: translateX(5px);
+}
+
+#section0 h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#section0 p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section {
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#section2,
+#section4 {
+  background-color: #f3f4f6;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.875rem;
+}
+
+#section5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+}
+
+#section5 h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+#section5-body {
+  text-align: left;
+  width: 80%;
+  margin-top: 20px;
+}
+
+#section5-body p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Image Styles */
+.rack-container {
+  position: relative;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+#clothes-rack {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.tshirt {
+  position: absolute;
+  top: 10.7%;
+  width: 40%;
+  height: auto;
+  transform-origin: center top;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+/* Only apply hover animation to t-shirt images, not box images */
+.tshirt[src*="tshirt"]:hover {
+  animation: swing 1s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* T-shirt positioning */
+#tshirt-black1 {
+  left: 0%;
+  z-index: 10;
+  transition: transform 0.5s ease;
+}
+#tshirt-black2 {
+  left: 7%;
+  z-index: 9;
+  transition: transform 0.5s ease;
+}
+#tshirt-black3 {
+  left: 14%;
+  z-index: 8;
+  transition: transform 0.5s ease;
+}
+#tshirt-black4 {
+  left: 21%;
+  z-index: 7;
+  transition: transform 0.5s ease;
+}
+#tshirt-black5 {
+  left: 28%;
+  z-index: 6;
+  transition: transform 0.5s ease;
+}
+#tshirt-black6 {
+  left: 35%;
+  z-index: 5;
+  transition: transform 0.5s ease;
+}
+#tshirt-black7 {
+  left: 42%;
+  z-index: 4;
+  transition: transform 0.5s ease;
+}
+#tshirt-black8 {
+  left: 49%;
+  z-index: 3;
+  transition: transform 0.5s ease;
+}
+#tshirt-black9 {
+  left: 56%;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+#tshirt-gray1 {
+  left: 63%;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+#tshirt-navy {
+  left: 30%;
+}
+
+#tshirt-gray {
+  left: 50%;
+}
+
+.truck {
+  animation: truck 1s linear infinite;
+}
+
+@keyframes truck {
+  100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  0% {
+    transform: translateY(-1px);
+  }
+}
+
+/* IPHONE APP STYLES */
+
+.app {
+  margin: auto;
+  width: 400px;
+  height: 800px;
+
+  border-radius: 60px;
+  border-width: 10px;
+  border-color: black;
+  border-style: solid;
+
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0.8%;
+  left: 6%;
+}
+
+#iphone-top {
+  position: relative;
+}
+
+#iphone-time {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#iphone-signal {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  font-size: 18px;
+  color: black;
+}
+
+#iphone-wifi {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  font-size: 18px;
+  color: black;
+}
+
+#iphone-battery {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 22px;
+  color: black;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 35px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-top: 50px;
+  padding-bottom: 15px;
+}
+
+.app-header i {
+  font-size: 20px;
+}
+
+.app-header h1 {
+  color: black;
+  font-size: 20px;
+  margin: 0;
+}
+
+.app-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  overflow-y: scroll;
+  flex: 1;
+  padding-bottom: 30px;
+  background-color: white;
+}
+
+/* Hide Scrollbar for Safari and Chrome */
+.app-body::-webkit-scrollbar {
+  display: none;
+}
+
+.contents {
+  width: 100%;
+  height: auto;
+  /* display: flex; */
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.contents:last-child,
+.contents:nth-last-child(2) {
+  padding-bottom: 60px;
+}
+
+.contents p {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 0 8px;
+  text-align: left;
+  overflow-x: hidden;
+  /* No wrap text */
+  white-space: nowrap;
+  /* overflow text -> "..." */
+  text-overflow: ellipsis;
+}
+
+.contents img {
+  width: 100%;
+  background-color: #f7f7f7;
+  margin-bottom: 8px;
+}
+
+.app-tshirt {
+  width: 100%;
+}
+
+#navbar {
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #a4a4a456;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  /* margin-bottom: 20px; */
+}
+
+#navbar i {
+  font-size: 18px;
+  color: black;
+}
+
+#discover-icon i,
+#cart-icon i,
+#profile-icon i,
+#discover-icon p,
+#cart-icon p,
+#profile-icon p {
+  color: #707070;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+#navbar p {
+  font-size: 12px;
+}
+
+#iphone-home-bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background-color: black;
+  border-radius: 3px;
+  z-index: 1000;
+}
+
+/* DELIVERY TRUCK */
+.delivery-truck {
+  position: absolute;
+  bottom: 13.3%;
+  left: 16%;
+  width: 100px;
+  height: auto;
+  z-index: 10;
+}
+
+.delivery-truck img {
+  width: 100%;
+  height: auto;
+  animation: truck 1s linear infinite;
+}
+
+@keyframes truck {
+  0% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
+  100% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.purchased-message {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 50px;
+  background-color: white;
+  border-radius: 30px;
+  border: 3px solid red;
+  padding: 0 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchased-message p {
+  font-size: 22px;
+  text-align: center;
+  margin: 0;
+  color: red;
+  font-weight: 600;
+}
+
+/* Section 4 specific styles */
+#section4 .delivery-truck {
+  bottom: 20%; /* Adjusted for section 4 layout */
+  z-index: 10;
+}
+
+#section4 .purchased-message {
+  top: 40%;
+  transform: translateX(-70%);
+}
+
+.city {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
+#threeD-app-body {
+  display: flex;
+  justify-content: center;
+}
+
+/* Navigation buttons container */
+.navigation-buttons {
+  position: absolute;
+  bottom: calc(5% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 20;
+}
+
+/* Back button styling */
+.back-btn {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 18px;
+  width: 140px;
+  height: 48px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20;
+}
+
+.back-btn::before {
+  content: "←";
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  margin-right: 5px;
+}
+
+.back-btn:hover {
+  background-color: #666;
+  width: 160px;
+}
+
+.back-btn:hover::before {
+  opacity: 1;
+  transform: translateX(-5px);
+}
+
+/* Update continue button for navigation container */
+.navigation-buttons .continue-btn {
+  margin-top: 2rem;
+  position: static;
+  transform: none;
+}
+
+.navigation-buttons .back-btn {
+  margin-top: 2rem;
+  position: static;
+  transform: none;
+}
+
+.section-1-instructions {
+  transform: translateX(600px);
+}
+
+.section-1-instructions h1 {
+  text-align: left;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-1-instructions div {
+  text-align: left;
+}
+
+.section-1-instructions p {
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-1-instructions h2 {
+  font-size: 40px;
+  font-weight: 800;
+  opacity: 0;
+  margin-bottom: 1rem;
+  color: #000;
+  text-align: left;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes emphasize {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Specific styles for each emotional word */
+.section-1-instructions h2:nth-child(1) {
+  /* Disappointed */
+  color: red;
+}
+
+.section-1-instructions h2:nth-child(2) {
+  /* Frustrated */
+  color: red;
+}
+
+.section-1-instructions h2:nth-child(3) {
+  /* Confused */
+  color: red;
+}
+
+.boxes {
+  position: absolute;
+  bottom: 200px; /* Fixed bottom position */
+  left: -27%;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  z-index: -1;
+}
+
+.box-container {
+  width: 25%;
+  position: relative;
+  height: 37.5px; /* Fixed height */
+  bottom: 0; /* Align all containers to bottom */
+}
+
+.box {
+  width: 37.5px;
+  height: 37.5px;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  position: absolute; /* Changed to absolute */
+  bottom: 0; /* Align all boxes to bottom */
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+#section2 p {
+  margin: 0;
+}
+
+#action {
+  position: absolute;
+  top: 42%;
+  left: 43%;
+}
+
+#spin {
+  position: absolute;
+  left: 17%;
+  top: 25%;
+  z-index: 10;
+}
+
+/* Section title animations */
+section h1,
+section h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Ensure consistent title styling */
+section h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#section2-body {
+  text-align: left;
+  width: 80%;
+  margin-left: 550px;
+  /* margin: 0 auto; */
+  /* padding: 20px; */
+}
+
+#section2-body p {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+#section2 h1 {
+  margin-bottom: 10px;
+}
+
+#section3 p {
+  font-size: 2rem;
+}
+
+#section4-body {
+  text-align: left;
+  width: 80%;
+  margin-left: 570px;
+  margin-top: 20px;
+}
+
+#section4-body p {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+#section5-body {
+  text-align: left;
+  width: 80%;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+#section5-body p {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0;
+  margin-left: 350px;
+}
+
+#section1-body p{
+  font-size: 2rem;
+}
+
+#section0-p {
+  font-size: 2rem;
+}

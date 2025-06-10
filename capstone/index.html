@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Check</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- Section 0: -->
+    <section id="section0">
+        <h1><strong>The True Cost of Returns</strong></h1>
+        <p id="section0-p">Experience how returning clothes is more than just a personal hassle</p>
+        <!-- <p id="image-credits">*All Images created by prompting ChatGPT*</p> -->
+        <div class="rack-container">
+            <img id="clothes-rack" src="./assets/images/clothes-rack.png" alt="Clothes rack illustration"
+                draggable="false">
+            <img class="tshirt" id="tshirt-gray" src="./assets/images/tshirt-gray.png" alt="Gray t-shirt"
+                draggable="false">
+            <img class="tshirt" id="tshirt-navy" src="./assets/images/tshirt-navy.png" alt="Navy t-shirt"
+                draggable="false">
+            <img class="tshirt" id="tshirt-black" src="./assets/images/tshirt-black.png" alt="Black t-shirt"
+                draggable="false">
+        </div>
+        <button class="continue-btn" data-next="1">Continue</button>
+
+    </section>
+
+    <!-- Section 1: -->
+    <section id="section1">
+        <div class="app">
+            <div class="iphone-top">
+                <p id="iphone-time">7:49</p>
+                <div class="dynamic-island"></div>
+                <i id="iphone-signal" class="fa-solid fa-signal"></i>
+                <i id="iphone-wifi" class="fa-solid fa-wifi"></i>
+                <i id="iphone-battery" class="fa-solid fa-battery-full"></i>
+            </div>
+
+            <div class="app-header">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <h1>Shopping App</h1>
+            </div>
+
+            <div class="app-body">
+                <div class="contents black-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black.png" alt="tshirt image" draggable="false">
+                    <p>Black T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents navy-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-navy.png" alt="tshirt image" draggable="false">
+                    <p>Navy T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray.png" alt="tshirt image" draggable="false">
+                    <p>Gray T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents blue-black-stripes-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-blue-black-stripes.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black and Blue Stripe T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents white-dots-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-white-dots.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Dots T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents light-blue-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-light-blue.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Light Blue T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents black-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Gray Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+            </div>
+
+            <div id="navbar">
+                <div class="icons" id="home-icon">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="icons" id="discover-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Discover</p>
+                </div>
+                <div class="icons" id="cart-icon">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <p>Cart</p>
+                </div>
+                <div class="icons" id="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </div>
+
+            </div>
+
+            <div id="iphone-home-bar"></div>
+        </div>
+
+        <div class="section-1-instructions">
+            <h1><strong>Have You Ever Shopped for Clothes Online?</strong></h1>
+            <div id="section1-body">
+                <p>📱 You're constantly tracking your order</p>
+                <p>⏳ You're waiting for days</p>
+                <p>🎉 Congrats, it finally arrived!</p>
+                <p>📦 You rip the box open and try them on</p>
+                <p>😕 Only to look in the mirror and feel...</p>
+            </div>
+            <div>
+                <h2>Disappointed.</h2>
+                <h2>Frustrated.</h2>
+                <h2>Confused?</h2>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="back-btn" data-prev="0">Back</button>
+            <button class="continue-btn" data-next="2">Continue</button>
+        </div>
+    </section>
+
+    <!-- Section 2: -->
+    <section id="section2">
+        <h1><strong>It's Not Just You.</strong></h1>
+        <div id="section2-body">
+            <p>According to <em>Vogue Business</em>:</p>
+            <p>Incorrect sizing or fit is the most
+                <br>
+                common reason for returns <strong>(93%)</strong>,
+            </p>
+            <p>followed by poor product quality <strong>(81%)</strong>.</p>
+        </div>
+        <p id="action">(click a black t-shirt to return it!)</p>
+        <div class="rack-container">
+            <img id="clothes-rack" src="./assets/images/clothes-rack.png" alt="Clothes rack illustration"
+                draggable="false">
+            <img class="tshirt" id="tshirt-black9" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black8" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black7" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black6" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black5" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black4" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black3" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black2" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-black1" src="./assets/images/tshirt-black.png" alt="" draggable="false">
+            <img class="tshirt" id="tshirt-gray1" src="./assets/images/tshirt-gray.png" alt="" draggable="false">
+        </div>
+        <div class="boxes">
+            <div class="box-container">
+                <img class="box" id="box1" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box2" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box3" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box4" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box5" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box6" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box7" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box8" src="./images/box.png" alt="">
+            </div>
+            <div class="box-container">
+                <img class="box" id="box9" src="./images/box.png" alt="">
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="back-btn" data-prev="1">Back</button>
+            <button class="continue-btn" data-next="3">Continue</button>
+        </div>
+    </section>
+
+    <!-- Section 3: -->
+    <section id="section3">
+        <h1><strong>Returns Come at a Cost, To More Than Just You.</strong></h1>
+        <p>
+            In 2022 alone, returns cost the UK fashion industry <strong>£7 billion.</strong>
+            <br>
+            That's enough money to fund multiple missions to Mars!
+            <br>
+            (The MER mission cost $1.08 billion)
+            <br>
+            (The MRO cost $716.6 million)
+            <br>
+            (The Phoenix mission cost $420 million)
+            <br>
+            That's a lot of money, and that just in the UK.
+            <br>
+
+        </p>
+        <div class="navigation-buttons">
+            <button class="back-btn" data-prev="2">Back</button>
+            <button class="continue-btn" data-next="4">Continue</button>
+        </div>
+    </section>
+
+    <!-- Section 4: -->
+    <section id="section4">
+        <h1><strong>Returns Leave a Trail</strong></h1>
+        <div id="section4-body">
+            <p>This also produced a total of <strong>750,000 tonnes</strong> of CO₂ emissions.</p>
+            <p>Transportation was the biggest contributor, half of all emissions, <br>
+                and it's only rising.</p>
+            <br>
+            <p>Every return has an impact.</p>
+            <p>(Scroll through the app, and click a t-shirt to return.)</p>
+        </div>
+
+
+        <div class="app">
+            <div class="iphone-top">
+                <p id="iphone-time">7:49</p>
+                <div class="dynamic-island"></div>
+                <i id="iphone-signal" class="fa-solid fa-signal"></i>
+                <i id="iphone-wifi" class="fa-solid fa-wifi"></i>
+                <i id="iphone-battery" class="fa-solid fa-battery-full"></i>
+            </div>
+
+            <div class="app-header">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <h1>Shopping App</h1>
+            </div>
+
+            <div class="app-body">
+                <div class="contents black-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black.png" alt="tshirt image" draggable="false">
+                    <p>Black T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents navy-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-navy.png" alt="tshirt image" draggable="false">
+                    <p>Navy T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray.png" alt="tshirt image" draggable="false">
+                    <p>Gray T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents blue-black-stripes-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-blue-black-stripes.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black and Blue Stripe T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents white-dots-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-white-dots.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Dots T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents light-blue-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-light-blue.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Light Blue T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents black-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Gray Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+            </div>
+
+            <div id="navbar">
+                <div class="icons" id="home-icon">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="icons" id="discover-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Discover</p>
+                </div>
+                <div class="icons" id="cart-icon">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <p>Cart</p>
+                </div>
+                <div class="icons" id="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </div>
+
+            </div>
+
+            <div id="iphone-home-bar"></div>
+        </div>
+
+        <div class="city">
+            <img src="./images/city.png" alt="" draggable="false">
+        </div>
+
+
+        <div class="navigation-buttons">
+            <button class="back-btn" data-prev="3">Back</button>
+            <button class="continue-btn" data-next="5">Continue</button>
+        </div>
+    </section>
+    <!-- Section 5: -->
+    <section id="section5">
+        <div id="section5-body">
+            <h1><strong>There Has to Be a Better Way.</strong></h1>
+            <div>
+                <p>From disappointing fit to environmental harm, the current online shopping experience is broken.</p>
+                <p>What if you could try them on, without trying them on?</p>
+                <br><br>
+                <p>Would you feel more confident in your purchase?</p>
+                <br>
+                <p>Would you be less likely to return the clothes?</p>
+            </div>
+        </div>
+        <p id="spin">(Spin me)</p>
+        <div class="app" id="threeD-app">
+            <div class="iphone-top">
+                <p id="iphone-time">7:49</p>
+                <div class="dynamic-island"></div>
+                <i id="iphone-signal" class="fa-solid fa-signal"></i>
+                <i id="iphone-wifi" class="fa-solid fa-wifi"></i>
+                <i id="iphone-battery" class="fa-solid fa-battery-full"></i>
+            </div>
+
+            <div class="app-header">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <h1>Shopping App</h1>
+            </div>
+
+            <div class="app-body" id="threeD-app-body">
+                <canvas class="webgl"></canvas>
+            </div>
+
+            <div id="navbar">
+                <div class="icons" id="home-icon">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="icons" id="discover-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Discover</p>
+                </div>
+                <div class="icons" id="cart-icon">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <p>Cart</p>
+                </div>
+                <div class="icons" id="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </div>
+            </div>
+
+            <div id="iphone-home-bar"></div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="back-btn" data-prev="4">Back</button>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -6,17 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fit Check</title>
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
 
 <body>
     <!-- Section 1: Relatable Hook -->
     <section id="section1">
         <h1>Have You Ever Shopped for Clothes Online?</h1>
-        <button>Yes</button>
+        <div class="rack-container">
+            <img id="clothes-rack" src="./assets/images/clothes-rack.png" alt="Clothes rack illustration" draggable="false">
+                <img class="tshirt" id="tshirt-gray" src="./assets/images/tshirt-gray.png" alt="Gray t-shirt" draggable="false">
+                <img class="tshirt" id="tshirt-navy" src="./assets/images/tshirt-navy.png" alt="Navy t-shirt" draggable="false">
+                <img class="tshirt" id="tshirt-black" src="./assets/images/tshirt-black.png" alt="Black t-shirt" draggable="false">
+        </div>
+
+        </div>
+        <button type="button" class="btn btn-light" id="yes-button">Yes</button>
         <!-- <button>No</button> -->
-        <div id="yes-button">
+        <div id="yes-button-section">
             <p>📱 You're constantly tracking your order</p>
             <p>⏳ You're waiting for days</p>
             <p>🎉 Congrats, it arrived!</p>
@@ -28,19 +41,21 @@
         </div>
         <div id="no-button"></div>
         <!-- <p>(Scroll down to continue)</p> -->
+        <button> continue</button>
     </section>
 
     <!-- Section 2: Social Proof -->
-    <section id="section2">
+    <!-- <section id="section2">
         <h2>It's Not Just You.</h2>
         <p>
             According to <em>Vogue Business</em>:
             <br>
-            "Incorrect sizing or fit is the most common reason for returns <strong>(93%)</strong>, followed by poor product quality
+            "Incorrect sizing or fit is the most common reason for returns <strong>(93%)</strong>, followed by poor
+            product quality
             <strong>(81%)</strong>."
         </p>
-            <p>size returns pie chart <br> quality returns pie chart</p>
-    </section>
+        <p>size returns pie chart <br> quality returns pie chart</p>
+    </section> -->
 
     <!-- Section 3: Environmental Impact -->
     <section id="section3">
@@ -68,12 +83,12 @@
     <!-- Optional: Solution Section -->
     <section id="section5">
         <p>Spin me!</p>
-            <div id="size-buttons">
-                <button class="size">S</button>
-                <button class="size">M</button>
-                <button class="size">L</button>
-            </div>
-            <canvas class="webgl"></canvas>
+        <div id="size-buttons">
+            <button class="size">S</button>
+            <button class="size">M</button>
+            <button class="size">L</button>
+        </div>
+        <canvas class="webgl"></canvas>
         </div>
     </section>
 
