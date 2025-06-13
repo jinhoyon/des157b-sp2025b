@@ -1,154 +1,191 @@
-// Scroll Animation
+// Global variables
+let tshirtClickCount = 0;
+let purchasedTshirts = [];
 
-document.addEventListener('DOMContentLoaded', function() {
-    var section1 = document.querySelector('#section1'); // select section
-    var title = section1.querySelector('h1');   // select section title
-    var buttons = section1.querySelectorAll('button');  // selection setcion 1 buttons
-    var yesButtonContent = document.querySelector('#yes-button');   // section 1 "yes" button
-    var noButtonContent = document.querySelector('#no-button');     // section 1 "no" button
-    var yesButtonElements = yesButtonContent.querySelectorAll('p, h2'); // "yes" button text elements
-    var noButtonElements = noButtonContent.querySelectorAll('p, h2');   // "no" button text elements
-    
-    // alert("You are a first-year UC Davis student who likes to order clothes online. You have been recently bought a hoddie you liked, but found out that it is too small for your liking. Scroll through the webpage and interact with it to find out about online shopping.")
+// Scroll Animation and Button Behavior
+(function () {
+    'use strict';
 
-    // Add transitions to all elements
-    var allElements = [title];
-    buttons.forEach(function(button) {
-        allElements.push(button);
-    });
-    yesButtonElements.forEach(function(element) {
-        allElements.push(element);
-    });
-    noButtonElements.forEach(function(element) {
-        allElements.push(element);
-    });
-    
-    allElements.forEach(function(element) {
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    });
+    // Section 1 Animation Setup
+    var title = section1.querySelector('h1');
 
-    // Show title first
-    setTimeout(function() {
-        title.style.opacity = '1';
-        title.style.transform = 'translateY(0)';
-        
-        // Then show buttons after title
-        setTimeout(function() {
-            buttons.forEach(function(button) {
-                button.style.opacity = '1';
-                button.style.transform = 'translateY(0)';
-            });
+    // Title Animation Setup
+    if (title) {
+        title.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        title.style.opacity = '0';
+        title.style.transform = 'translateY(20px)';
+    }
+
+    // Animate Title
+    if (title) {
+        setTimeout(function () {
+            title.style.opacity = '1';
+            title.style.transform = 'translateY(0)';
         }, 800);
-    }, 800);
+    }
 
-    // Add click event to buttons
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            if (button.textContent === 'Yes') {
-                // Animate Yes button content
-                yesButtonElements.forEach(function(element, index) {
-                    setTimeout(function() {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, index * 1500);
-                });
-            } else if (button.textContent === 'No') {
-                // Animate No button content
-                noButtonElements.forEach(function(element, index) {
-                    setTimeout(function() {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, index * 1500);
-                });
-            }
+    // Scroll to next section
+    const continueBtn = document.getElementById('continue-btn');
+    const buyClothes = document.getElementById('buy-clothes');
+
+    if (continueBtn && buyClothes) {
+        continueBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            buyClothes.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+     // Update iPhone time
+     const updateIPhoneTime = () => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}`;
+        document.getElementById('iphone-time').textContent = timeString;
+    };
+    updateIPhoneTime();
+    setInterval(updateIPhoneTime, 60000);
+
+
+    // t-shirt click handler
+    const appTshirts = document.querySelectorAll('.contents');
+    appTshirts.forEach(tshirt => {
+        tshirt.addEventListener('click', () => {
+            // Get t-shirt details
+            const tshirtDetails = {
+                name: tshirt.querySelector('p:first-of-type').textContent,
+                price: tshirt.querySelector('p:last-of-type').textContent,
+                image: tshirt.querySelector('img').src
+            };
+            createAndMoveTruck(tshirtDetails);
         });
     });
-});
 
-// Canvas
-const canvas = document.querySelector('.webgl');
+    // Truck move logic
+    const createAndMoveTruck = (tshirtDetails) => {
+        tshirtClickCount++;
+        console.log(tshirtClickCount);
 
-// 1. Scene
-var scene = new THREE.Scene();
-scene.background = new THREE.Color(0xffffff);
+        // Add t-shirt details to purchased array
+        purchasedTshirts.push({
+            name: tshirtDetails.name,
+            price: tshirtDetails.price,
+            timestamp: new Date().toISOString(),
+            image: tshirtDetails.image
+        });
 
-// 2. Camera
-var camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-camera.position.z = 200;
+        console.log('Purchased T-shirts:', purchasedTshirts);
 
-// 3. Render
-var renderer = new THREE.WebGLRenderer({canvas});
-renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.shadowMap.enabled = true;
+        const newTruck = document.createElement('div');
+        newTruck.className = 'delivery-truck';
+        newTruck.innerHTML = '<img src="./images/delivery-truck.png" alt="Delivery Truck Image">';
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    // Update camera
-    camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    camera.updateProjectionMatrix();
-    
-    // Update renderer
+        newTruck.style.left = '24%';
+        newTruck.style.bottom = '0.8%';
+        newTruck.style.position = 'absolute';
+        newTruck.style.zIndex = '-1';
+
+        // Append to #buy-clothes section instead of body
+        const buyClothesSection = document.getElementById('buy-clothes');
+        buyClothesSection.appendChild(newTruck);
+
+        // Create and show purchased message
+        const purchasedMessage = document.createElement('div');
+        purchasedMessage.className = 'purchased-message';
+        purchasedMessage.innerHTML = '<p>✅ Delivery is on the way!</p>';
+        buyClothesSection.appendChild(purchasedMessage);
+
+        // Show purchased message
+        purchasedMessage.style.display = 'flex';
+        purchasedMessage.style.animation = 'fadeInOut 3s ease-in-out';
+        
+        // Remove message after animation
+        setTimeout(() => {
+            purchasedMessage.remove();
+        }, 3000);
+
+        // Move the truck across the screen
+        setTimeout(() => {
+            newTruck.style.transition = 'left 15s linear';
+            newTruck.style.left = '80%';
+        }, 0);
+    };
+
+    // ======== Three.js Setup ========
+    // Canvas
+    const canvas = document.querySelector('.webgl');
+    if (!canvas) {
+        console.error('Canvas element not found!');
+        return;
+    }
+
+    // Scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffffff);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 200;
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
+    renderer.shadowMap.enabled = true;
 
-// Orbit Controls (For moving Model)
-var controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; // adds inertia so model does not stop immediately
-controls.dampingFactor = 0.25; // how strong damping is (from 0 to 1)
-controls.enableZoom = false; // disable zooming
-controls.minDistance = 200; // minimum distance
-controls.maxDistance = 200; // maximum distance (same as min to fix distance)
-controls.minPolarAngle = Math.PI / 2;
-controls.maxPolarAngle = Math.PI / 2;
-
-// 4. Lights
-
-// Main light (Direct light source)
-var keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
-keyLight.position.set(-200, 0, 200);
-
-// Soften Shadows (Weaker light that fills dark areas)
-var fillLight = new THREE.DirectionalLight(0xffffff, 0.75);
-fillLight.position.set(200, 0, 200);
-
-// Behind subject (creates depth, "glowing outline")
-var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-backLight.position.set(200, 0, -200).normalize();
-
-scene.add(keyLight);
-scene.add(fillLight);
-scene.add(backLight);
-
-// Loader (Load Avatar)
-
-// Load MTL (Material Definitions - textures, colors, etc.)
-var mtlLoader = new THREE.MTLLoader();
-mtlLoader.setPath('./assets/');
-mtlLoader.load('JinhoWithClothes.mtl', function (materials) { // materials = materials parsed from MTL file
-
-    materials.preload(); // prepares materials for use
-
-    // Load OBJ (Geometry - vertices, edges, etc.)
-    var objLoader = new THREE.OBJLoader();
-    objLoader.setMaterials(materials); // appy materials to object
-    objLoader.setPath('./assets/');
-    objLoader.load('JinhoWithClothes.obj', function (object) {
-
-        scene.add(object);
-        object.position.y -= 100;
-        object.scale.set(0.1, 0.1, 0.1);
-
+    // Resize Handling
+    window.addEventListener('resize', () => {
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-});
+    // Orbit Controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = false;
+    controls.minDistance = 200;
+    controls.maxDistance = 200;
+    controls.minPolarAngle = Math.PI / 2;
+    controls.maxPolarAngle = Math.PI / 2;
 
-// Animation loop
-var animate = function () {
-    requestAnimationFrame(animate); // call animate() again
-    controls.update(); // update orbit controls
-    renderer.render(scene, camera); // render scene from camera's POV
-};
+    // Lights
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    keyLight.position.set(-200, 0, 200);
+    scene.add(keyLight);
 
-animate();
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.75);
+    fillLight.position.set(200, 0, 200);
+    scene.add(fillLight);
+
+    const backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    backLight.position.set(200, 0, -200).normalize();
+    scene.add(backLight);
+
+    // Load 3D Model
+    const mtlLoader = new THREE.MTLLoader();
+    mtlLoader.setPath('./assets/');
+    mtlLoader.load('JinhoWithClothes.mtl', function (materials) {
+        materials.preload();
+
+        const objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.setPath('./assets/');
+        objLoader.load('JinhoWithClothes.obj', function (object) {
+            object.position.y -= 100;
+            object.scale.set(0.1, 0.1, 0.1);
+            scene.add(object);
+        });
+    });
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    animate();
+})();

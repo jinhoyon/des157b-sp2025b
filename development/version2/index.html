@@ -6,46 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fit Check</title>
 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
 
 <body>
     <!-- Section 1: Relatable Hook -->
     <section id="section1">
-        <h1>Have You Ever Shopped for Clothes Online?</h1>
+        <h1>Let's Go Shopping!</h1>
         <div class="rack-container">
-            <img id="clothes-rack" src="./assets/images/clothes-rack.png" alt="Clothes rack illustration" draggable="false">
-                <img class="tshirt" id="tshirt-gray" src="./assets/images/tshirt-gray.png" alt="Gray t-shirt" draggable="false">
-                <img class="tshirt" id="tshirt-navy" src="./assets/images/tshirt-navy.png" alt="Navy t-shirt" draggable="false">
-                <img class="tshirt" id="tshirt-black" src="./assets/images/tshirt-black.png" alt="Black t-shirt" draggable="false">
+            <img id="clothes-rack" src="./assets/images/clothes-rack.png" alt="Clothes rack illustration"
+                draggable="false">
+            <img class="tshirt" id="tshirt-gray" src="./assets/images/tshirt-gray.png" alt="Gray t-shirt"
+                draggable="false">
+            <img class="tshirt" id="tshirt-navy" src="./assets/images/tshirt-navy.png" alt="Navy t-shirt"
+                draggable="false">
+            <img class="tshirt" id="tshirt-black" src="./assets/images/tshirt-black.png" alt="Black t-shirt"
+                draggable="false">
+        </div>
+        <button id="continue-btn"> continue</button>
+
+    </section>
+
+    <section id="buy-clothes">
+        <div class="app">
+            <div class="iphone-top">
+                <p id="iphone-time">7:49</p>
+                <div class="dynamic-island"></div>
+                <i id="iphone-signal" class="fa-solid fa-signal"></i>
+                <i id="iphone-wifi" class="fa-solid fa-wifi"></i>
+                <i id="iphone-battery" class="fa-solid fa-battery-full"></i>
+            </div>
+
+            <div class="app-header">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <h1>Shopping App</h1>
+            </div>
+
+            <div class="app-body">
+                <div class="contents black-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black.png" alt="tshirt image" draggable="false">
+                    <p>Black T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents navy-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-navy.png" alt="tshirt image" draggable="false">
+                    <p>Navy T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray.png" alt="tshirt image" draggable="false">
+                    <p>Gray T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents blue-black-stripes-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-blue-black-stripes.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black and Blue Stripe T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents white-dots-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-white-dots.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Dots T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents light-blue-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-light-blue.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Light Blue T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents black-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-black-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Black Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+                <div class="contents gray-longsleeve-tshirt">
+                    <img class="app-tshirt" src="./images/app/tshirt-gray-longsleeve.png" alt="tshirt image"
+                        draggable="false">
+                    <p>Gray Long Sleeve T-Shirt</p>
+                    <p>$20</p>
+                </div>
+            </div>
+
+            <div id="navbar">
+                <div class="icons" id="home-icon">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+                <div class="icons" id="discover-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Discover</p>
+                </div>
+                <div class="icons" id="cart-icon">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <p>Cart</p>
+                </div>
+                <div class="icons" id="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Profile</p>
+                </div>
+
+            </div>
+
+            <div id="iphone-home-bar"></div>
         </div>
 
+        <div class="section-1-instructions">
+            <p>Scroll through the phone and help Roy buy some new t-shirts!</p>
+            <p>Click on a shirt to buy.</p>
         </div>
-        <button type="button" class="btn btn-light" id="yes-button">Yes</button>
-        <!-- <button>No</button> -->
-        <div id="yes-button-section">
-            <p>📱 You're constantly tracking your order</p>
-            <p>⏳ You're waiting for days</p>
-            <p>🎉 Congrats, it arrived!</p>
-            <p>📦 You rip the box open and try them on</p>
-            <p>😕 Only to look in the mirror and feel...</p>
-            <h2>Disappointed.</h2>
-            <h2>Frustrated.</h2>
-            <h2>Confused.</h2>
+
+        <div class="purchased-message">
+            <p>✅ Delivery is on the way! </p>
         </div>
-        <div id="no-button"></div>
-        <!-- <p>(Scroll down to continue)</p> -->
-        <button> continue</button>
+
+        <div class="city">
+            <img src="./images/city.png" alt="">
+        </div>
     </section>
 
     <!-- Section 2: Social Proof -->
-    <!-- <section id="section2">
+    <section id="section2">
         <h2>It's Not Just You.</h2>
         <p>
             According to <em>Vogue Business</em>:
@@ -54,8 +142,7 @@
             product quality
             <strong>(81%)</strong>."
         </p>
-        <p>size returns pie chart <br> quality returns pie chart</p>
-    </section> -->
+    </section>
 
     <!-- Section 3: Environmental Impact -->
     <section id="section3">

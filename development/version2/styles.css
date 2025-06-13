@@ -1,9 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Canvas */
@@ -19,15 +22,21 @@ canvas {
 
 /* Section Styles */
 section {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #section1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #section1 h1 {
@@ -59,10 +68,6 @@ section {
   text-align: center;
   padding-top: 4rem;
   padding-bottom: 4rem;
-}
-
-p {
-  font-size: 1.25rem;
 }
 
 #section2,
@@ -158,4 +163,314 @@ img {
 
 .tshirt:hover {
   animation: swing 1s ease-in-out infinite;
+}
+
+#section1 button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 5%;
+}
+
+#section1 button:hover {
+  background-color: #333;
+}
+
+
+.truck {
+  animation: truck 1s linear infinite;
+}
+
+@keyframes truck {
+  100%{
+    transform: translateY(-1px);
+  }
+  50%{
+    transform: translateY(1px);
+  }
+  0%{
+    transform: translateY(-1px);
+  }
+  
+}
+
+/* IPHONE APP STYLES */
+
+.app {
+  margin: auto;
+  width: 400px;
+  height: 800px;
+
+  border-radius: 60px;
+  border-width: 10px;
+  border-color: black;
+  border-style: solid;
+
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0.8%;
+  left: 6%;
+}
+
+#iphone-top {
+  position: relative;
+}
+
+#iphone-time {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#iphone-signal {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  font-size: 18px;
+  color: black;
+}
+
+#iphone-wifi {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  font-size: 18px;
+  color: black;
+}
+
+#iphone-battery {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 22px;
+  color: black;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 35px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-top: 50px;
+  padding-bottom: 15px;
+}
+
+.app-header i {
+  font-size: 20px;
+}
+
+.app-header h1 {
+  color: black;
+  font-size: 20px;
+  margin: 0;
+}
+
+.app-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  overflow-y: scroll;
+  flex: 1;
+  padding-bottom: 30px;
+  background-color: white;
+}
+
+/* Hide Scrollbar for Safari and Chrome */
+.app-body::-webkit-scrollbar {
+  display: none;
+}
+
+.contents {
+  width: 100%;
+  height: auto;
+  /* display: flex; */
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.contents:last-child,
+.contents:nth-last-child(2) {
+  padding-bottom: 60px;
+}
+
+.contents p {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 0 8px;
+  text-align: left;
+  overflow-x: hidden;
+  /* No wrap text */
+  white-space: nowrap;
+  /* overflow text -> "..." */
+  text-overflow: ellipsis;
+}
+
+.contents img {
+  width: 100%;
+  background-color: #f7f7f7;
+  margin-bottom: 8px;
+}
+
+.app-tshirt {
+  width: 100%;
+}
+
+#navbar {
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #a4a4a456;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  /* margin-bottom: 20px; */
+}
+
+#navbar i {
+  font-size: 18px;
+  color: black;
+}
+
+#discover-icon i,
+#cart-icon i,
+#profile-icon i,
+#discover-icon p,
+#cart-icon p,
+#profile-icon p {
+  color: #707070;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+#navbar p {
+  font-size: 12px;
+}
+
+#iphone-home-bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background-color: black;
+  border-radius: 3px;
+  z-index: 1000;
+}
+
+/* DELIVERY TRUCK */
+.delivery-truck {
+    position: absolute;
+    bottom: 13.3%;
+    left: 16%;
+    /* z-index: 1000; */
+    width: 100px;
+    height: auto;
+}
+
+.delivery-truck img {
+    width: 100%;
+    height: auto;
+    animation: truck 1s linear infinite;
+}
+
+@keyframes truck {
+    0% {
+        transform: translateY(-1.0px);
+    }
+    50% {
+        transform: translateY(1.5px);
+    }
+    100% {
+        transform: translateY(-1.0px);
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.purchased-message {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 50px;
+    background-color: white;
+    border-radius: 30px;
+    border: 3px solid green;
+    padding: 0 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchased-message p {
+    font-size: 22px;
+    text-align: center;
+    margin: 0;
+    color: green;
+    font-weight: 600;
+}
+
+.city{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
