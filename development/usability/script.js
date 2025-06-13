@@ -1,4 +1,4 @@
-// Scroll Animation
+alert("Hi, welcome to my usability test. This is an informative webpage on the detrimental effects of returning clothes. Go through the different sections and do the following:\n\n1. Talk out loud what you are thinking about or going to do.\n2. If you are stuck, ask questions out loud on what you are trying to do.\n3. Provide a brief summary of what you have learned from this webpage.");
 
 document.addEventListener('DOMContentLoaded', function() {
     var section1 = document.querySelector('#section1'); // select section
@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var yesButtonElements = yesButtonContent.querySelectorAll('p, h2'); // "yes" button text elements
     var noButtonElements = noButtonContent.querySelectorAll('p, h2');   // "no" button text elements
     
-    // alert("You are a first-year UC Davis student who likes to order clothes online. You have been recently bought a hoddie you liked, but found out that it is too small for your liking. Scroll through the webpage and interact with it to find out about online shopping.")
-
     // Add transitions to all elements
     var allElements = [title];
     buttons.forEach(function(button) {
