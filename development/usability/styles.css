@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Canvas */
+canvas {
+  width: 375px;
+  height: 667px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  border-radius: 40px;
+  margin: 0;
+}
+
+/* Section Styles */
+section {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+#section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#section1 h1 {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+#section1 #yes-button {
+  font-size: 1.25rem;
+  opacity: 0;
+}
+
+#yes-button-section > p {
+  font-size: 1.125rem;
+}
+
+#yes-button-section > p,
+#yes-button-section > h2 {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+#yes-button-section > h2 {
+  font-weight: 700;
+  font-size: calc(1.125rem * 2);
+}
+
+section {
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+#section2,
+#section4 {
+  background-color: #f3f4f6;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.875rem;
+}
+
+#section5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: black;
+  color: white;
+}
+
+/* Clothes Size Buttons */
+.size {
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.size:last-child {
+  margin-bottom: 0;
+}
+
+.size:hover {
+  background: white;
+  color: black;
+}
+
+/* Image Styles */
+.rack-container {
+  position: relative;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+#clothes-rack {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.tshirt {
+  position: absolute;
+  top: 10.7%;
+  width: 40%;
+  height: auto;
+  transform-origin: center top;
+  transition: transform 0.3s ease-out;
+}
+
+#tshirt-black {
+  left: 10%;
+}
+
+#tshirt-navy {
+  left: 30%;
+}
+
+#tshirt-gray {
+  left: 50%;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.tshirt:hover {
+  animation: swing 1s ease-in-out infinite;
+}
